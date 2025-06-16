@@ -28,7 +28,7 @@ int check(int a[], int n)
 
 // CÁCH 2
 
-int check2(int a[], int n)
+bool check2(int a[], int n)
 {
     bool seen[MAX] = {false};
 

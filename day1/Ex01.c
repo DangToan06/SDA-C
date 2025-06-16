@@ -10,4 +10,4 @@ int main()
     return 0;
 }
 
-// ĐỘ PHỨC TẠP O(n)
+// ĐỘ PHỨC TẠP THỜI GIAN O(n)

@@ -10,4 +10,4 @@ void printDouble(int n)
     }
 }
 
-// ĐỘ PHỨC TẠP O(log n)
+// ĐỘ PHỨC TẠP THỜI GIAN O(log n)

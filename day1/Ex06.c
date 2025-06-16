@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int check(int a[], int size, int num)
+bool check(int a[], int size, int num)
 {
     for (int i = 0; i < size; i++)
     {
@@ -62,3 +62,6 @@ int main()
 
     return 0;
 }
+
+// ĐỘ PHỨC TẠP THỜI GIAN O(n^2)
+// ĐỘ PHỨC TẠP KHÔNG GIAN O(n)

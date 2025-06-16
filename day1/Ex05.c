@@ -88,9 +88,12 @@ int main()
     int a[6] = {3, 5, 7, 2, 1, 4};
     int n = 6;
 
-    bubbleSort(a, n); // ĐỘ PHỨC TẠP O(n^2);
-
-    megerSort(a, 0, 5); // ĐỘ PHỨC TẠP O(nlogn);
+    bubbleSort(a, n);
+    // ĐỘ PHỨC TẠP THỜI GIAN O(n^2);
+    // ĐỘ PHỨC TẠP KHÔNG GIAN O(1)
+    megerSort(a, 0, 5);
+    // ĐỘ PHỨC TẠP THỜI GIAN O(nlogn);
+    // ĐỘ PHỨC TẠP KHÔNG GIAN O(n)
 
     for (int i = 0; i < 6; i++)
     {
