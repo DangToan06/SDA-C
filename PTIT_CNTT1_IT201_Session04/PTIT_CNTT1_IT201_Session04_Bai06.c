@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-
+#include <ctype.h>
 typedef struct
 {
     int id;
@@ -20,7 +20,7 @@ int main()
     for (int i = 0; i < n; i++)
     {
         students[i].id = i + 1;
-        scanf("%s", &students[i].name);
+        scanf("%s", students[i].name);
         scanf("%d", &students[i].age);
     }
 
@@ -29,17 +29,17 @@ int main()
         printf("id: %d || Ho ten: %s || Tuoi: %d\n", students[i].id, students[i].name, students[i].age);
     }
 
-    char search[10];
+    int search;
     bool check = false;
-    printf("Nhap vao ten ban muon tim kiem:\n");
-    scanf("%s", &search);
+    printf("Nhap vao id ban muon tim kiem:\n");
+    scanf("%d", &search);
 
     for (int i = 0; i < n; i++)
     {
-        if (strstr(students[i].name, search))
+        if (students[i].id == search)
         {
             check = true;
-            printf("id: %d || Ho ten: %s || Tuoi: %d\n", students[i].id, students[i].name, students[i].age);
+            return printf("id: %d || Ho ten: %s || Tuoi: %d\n", students[i].id, students[i].name, students[i].age);
         }
     }
 

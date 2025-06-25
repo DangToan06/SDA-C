@@ -2,13 +2,24 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-
+#include <ctype.h>
 typedef struct
 {
     int id;
     char name[10];
     int age;
 } Student;
+
+void strToLower(char *dest, const char *src)
+{
+    while (*src)
+    {
+        *dest = tolower(*src);
+        dest++;
+        src++;
+    }
+    *dest = '\0';
+}
 
 int main()
 {
@@ -20,7 +31,7 @@ int main()
     for (int i = 0; i < n; i++)
     {
         students[i].id = i + 1;
-        scanf("%s", &students[i].name);
+        scanf("%s", students[i].name);
         scanf("%d", &students[i].age);
     }
 
@@ -29,17 +40,22 @@ int main()
         printf("id: %d || Ho ten: %s || Tuoi: %d\n", students[i].id, students[i].name, students[i].age);
     }
 
-    int search;
+    char search[10];
     bool check = false;
-    printf("Nhap vao id ban muon tim kiem:\n");
-    scanf("%d", &search);
+    printf("Nhap vao ten ban muon tim kiem:\n");
+    scanf("%s", search);
+
+    char searchLower[50];
+    strToLower(searchLower, search);
 
     for (int i = 0; i < n; i++)
     {
-        if (students[i].id == search)
+        char nameLower[50];
+        strToLower(nameLower, students[i].name);
+        if (strstr(nameLower, searchLower))
         {
             check = true;
-            return printf("id: %d || Ho ten: %s || Tuoi: %d\n", students[i].id, students[i].name, students[i].age);
+            printf("id: %d || Ho ten: %s || Tuoi: %d\n", students[i].id, students[i].name, students[i].age);
         }
     }
 
