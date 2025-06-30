@@ -2,8 +2,9 @@
 
 void townOfHanoi(int n, char a, char c, char b)
 {
-    if (n == 0)
+    if (n == 1)
     {
+        printf("Dia 1 di chuyen tu %c sang %c\n", a, c);
         return;
     }
 
