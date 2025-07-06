@@ -16,22 +16,52 @@ Node *creativeNode(int value)
         printf("Cap phat bo nho khong thanh cong");
         exit(1);
     }
+
     newNode->data = value;
     newNode->next = NULL;
     newNode->prev = NULL;
     return newNode;
 }
 
-void printList(Node *head)
+Node *swapPairs(Node *head)
 {
-    int i = 0;
+    if (head == NULL || head->next == NULL)
+        return head;
+
+    Node *newHead = head->next;
+    Node *prev = NULL;
+    Node *current = head;
+
+    while (current != NULL && current->next != NULL)
+    {
+        Node *nextPair = current->next->next;
+        Node *second = current->next;
+
+        second->next = current;
+        current->next = nextPair;
+
+        if (prev != NULL)
+        {
+            prev->next = second;
+        }
+
+        prev = current;
+        current = nextPair;
+    }
+
+    return newHead;
+}
+
+void printNode(Node *head)
+{
+    printf("NULL <-> ");
     Node *current = head;
     while (current != NULL)
     {
-        i++;
-        printf("Node %d: %d\n", i, current->data);
+        printf("%d <-> ", current->data);
         current = current->next;
     }
+    printf("NULL\n");
 }
 
 int main()
@@ -53,6 +83,12 @@ int main()
 
     node3->next = node4;
     node4->prev = node3;
-    printList(head);
+
+    printf("Node list luc dau la\n");
+    printNode(head);
+
+    printf("Ndoe list sau khi doi cho la\n");
+    head = swapPairs(head);
+    printNode(head);
     return 0;
 }

@@ -53,7 +53,7 @@ int main()
     node3->prev = node2;
 
     node3->next = node4;
-
+    node4->prev = node3;
     printf("Danh sach lien ket co %d phan tu\n", countNode(head));
     return 0;
 }

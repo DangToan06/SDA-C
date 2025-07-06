@@ -16,22 +16,45 @@ Node *creativeNode(int value)
         printf("Cap phat bo nho khong thanh cong");
         exit(1);
     }
+
     newNode->data = value;
     newNode->next = NULL;
     newNode->prev = NULL;
     return newNode;
 }
 
-void printList(Node *head)
+Node *reverseList(Node *head)
 {
-    int i = 0;
+    Node *current = head;
+    Node *temp = NULL;
+
+    while (current != NULL)
+    {
+        temp = current->prev;
+        current->prev = current->next;
+        current->next = temp;
+
+        current = current->prev;
+    }
+
+    if (temp != NULL)
+    {
+        head = temp->prev;
+    }
+
+    return head;
+}
+
+void printNode(Node *head)
+{
+    printf("NULL <-> ");
     Node *current = head;
     while (current != NULL)
     {
-        i++;
-        printf("Node %d: %d\n", i, current->data);
+        printf("%d <-> ", current->data);
         current = current->next;
     }
+    printf("NULL\n");
 }
 
 int main()
@@ -53,6 +76,12 @@ int main()
 
     node3->next = node4;
     node4->prev = node3;
-    printList(head);
+
+    printf("Node list luc dau la\n");
+    printNode(head);
+
+    printf("Ndoe list sau khi dao la\n");
+    head = reverseList(head);
+    printNode(head);
     return 0;
 }

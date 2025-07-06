@@ -129,7 +129,7 @@ int main()
     node3->prev = node2;
 
     node3->next = node4;
-
+    node4->prev = node3;
     int pos;
     printf("Nhap vi tri can xoa:\n");
     scanf("%d", &pos);
